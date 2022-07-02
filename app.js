@@ -6,6 +6,10 @@ const myArray = () => {
     return ["Ben", "Stuart", "Katie"];
 }
 
+
+//Challenge functions
+
+
 //A value that is truthy. A value that is not falsy.
 
 const truthy = () => {
@@ -16,9 +20,10 @@ const truthy = () => {
 // makes sure that the objects properties are equal to your test
 // function
 
-const areTheyEqual = (prop1, prop2) => {
-    console.log(prop1 === prop2);
-    return prop1 === prop2;
+const createUser = (first, last) => {
+    const user = {firstname: first};
+    user.lastName = last;
+    return user;
 }
 
 // A function that will return items in an array with 6 or more
@@ -53,4 +58,29 @@ const numOfStudents = (array) => {
     return result.length;
 }
 
-module.exports = {add, myArray, truthy, areTheyEqual, filterArray, numToString, planet, numOfStudents};
+// Square every digit and concatenate them (must return an integer). (squareDigi(34) will return 916)
+
+const squareAll = (num) => {
+    //Convering number to string. Then split separates the digits into an array
+    let numArray = num.toString().split("");
+    //Squaring each number in the array
+    numArray = numArray.map(x => x ** 2);
+    //Joining the numbers back together and converting it back to the integer data type
+    let result = Number(numArray.join(""));
+    return result;
+}
+
+// Given a year return back the century it is in (century(1705) //will return 18)
+const century = (year) => {
+    return Math.ceil(year/100);
+}
+
+//With an array of ones and zeroes, convert the equivalent binary value to an integer. binary([0, 0, 0, 1]) will return 1) binary([0, 1, 0, 0]) will return 4)
+
+const binary = (array) => {
+    binaryString = array.join("");
+    num = parseInt(binaryString, 2);
+    return num;
+}
+
+module.exports = {add, myArray, truthy, createUser, filterArray, numToString, planet, numOfStudents, squareAll, century, binary};
